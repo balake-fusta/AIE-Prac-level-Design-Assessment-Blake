@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GameObject platform_Trigger;
+    [SerializeField] Transform Player;
+     [SerializeField] Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player.transform.position = spawnPoint.transform.position;
     }
 
     // Update is called once per frame
@@ -18,9 +19,6 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            platform_Trigger.GetComponent<Animator>().SetTrigger("TriggerPlatform");
-        }
+        Player.transform.position = spawnPoint.transform.position;
     }
 }
