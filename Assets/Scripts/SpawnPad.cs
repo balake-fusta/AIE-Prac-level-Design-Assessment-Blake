@@ -9,6 +9,7 @@ public class SpawnPad : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        spawnPoint.transform.position = spawnPad.transform.position;
+            spawnPoint.transform.position = spawnPad.transform.position;
+               
     }
 }
