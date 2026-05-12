@@ -194,7 +194,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private bool OnSlope()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3))
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
             float angel = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angel < maxSlopeAngle && angel != 0;
