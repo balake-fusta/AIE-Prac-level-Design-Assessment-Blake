@@ -13,7 +13,7 @@ public class KillBlock : MonoBehaviour
         Player.transform.position = spawnPoint.transform.position;
     }
 
-    // when the player hits the kill block the plyers psoition is changed to the  
+    // when the player hits the kill block the plyers psoition is changed to the spawnPoint  
     private void OnTriggerEnter(Collider other)
     {
         Player.transform.position = spawnPoint.transform.position;

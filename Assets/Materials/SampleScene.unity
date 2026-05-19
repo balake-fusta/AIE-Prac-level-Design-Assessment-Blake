@@ -15390,6 +15390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864707121}
   - component: {fileID: 1864707122}
+  - component: {fileID: 1864707124}
   - component: {fileID: 1864707123}
   m_Layer: 0
   m_Name: Player
@@ -15457,15 +15458,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   sprintSpeed: 10
-  groundDrag: 5
-  jumpForce: 3
+  slideSpeed: 30
+  speedIncreaseMultiplier: 1.5
+  slopeIncreaseMultiplier: 2.5
+  groundDrag: 4
+  jumpForce: 5
   jumpCooldown: 1
   airMultiplier: 1
   crouchSpeed: 3.5
   crouchYScale: 0.5
   jumpKey: 32
   sprintKey: 304
-  crouchKey: 306
+  crouchKey: 99
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -15473,6 +15477,25 @@ MonoBehaviour:
   maxSlopeAngle: 70
   orientation: {fileID: 1689718585}
   state: 0
+  sliding: 0
+--- !u!114 &1864707124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864707120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cdc9a3cff66be54cbba20b98f518da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1689718585}
+  playerObj: {fileID: 516925304}
+  maxSlideTime: 0.75
+  slideForce: 200
+  slideYScale: 0.5
+  slideKey: 306
 --- !u!1 &1923150956
 GameObject:
   m_ObjectHideFlags: 0

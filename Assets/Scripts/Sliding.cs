@@ -8,7 +8,7 @@ public class Sliding : MonoBehaviour
     public Transform orientation;
     public Transform playerObj;
     private Rigidbody rb;
-    private PlayerMovementAdvanced pm;
+    private PlayerMovementTutorial pm;
 
     [Header("Sliding")]
     public float maxSlideTime;
@@ -27,7 +27,7 @@ public class Sliding : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        pm = GetComponent<PlayerMovementAdvanced>();
+        pm = GetComponent<PlayerMovementTutorial>();
 
         startYScale = playerObj.localScale.y;
     }
@@ -75,7 +75,7 @@ public class Sliding : MonoBehaviour
         // sliding down a slope
         else
         {
-            rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
+            rb.AddForce(pm.GetSlopeMoveDirction(inputDirection) * slideForce, ForceMode.Force);
         }
 
         if (slideTimer <= 0)
