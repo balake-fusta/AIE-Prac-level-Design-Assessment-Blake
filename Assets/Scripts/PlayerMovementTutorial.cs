@@ -10,9 +10,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
     public float slideSpeed;
-
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
+    public float wallrunSpeed;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -60,11 +60,14 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         walking,
         sprinting,
+        wallrunning,
         crouching,
         sliding,
         air,
     }
     public bool sliding;
+    public bool crouching;
+    public bool wallrunning;
 
     private void Start()
     {
@@ -128,6 +131,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void StateHandler()
     {
+       
+
         //Mode - Sliding
         if (sliding)
         {
@@ -276,7 +281,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
-            Debug.Log("on slope");
+            
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
