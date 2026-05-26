@@ -131,7 +131,12 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void StateHandler()
     {
-       
+        //Mode - wallrunning
+        if (wallrunning)
+        {
+            state = MovementState.wallrunning;
+            desiredMoveSpeed = wallrunSpeed;
+        }
 
         //Mode - Sliding
         if (sliding)
@@ -235,7 +240,7 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
 
         //when on slope turn off gavity
-        rb.useGravity = !OnSlope();
+       if(!wallrunning)  rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()
