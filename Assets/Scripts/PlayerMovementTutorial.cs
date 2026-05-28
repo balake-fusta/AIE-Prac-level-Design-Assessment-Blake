@@ -13,6 +13,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
     public float wallrunSpeed;
+    
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -136,12 +137,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
+            
         }
 
         //Mode - Sliding
         if (sliding)
         {
             state = MovementState.sliding;
+            
 
             if (OnSlope() && rb.velocity.y < 0.1f)
                 desiredMoveSpeed = slideSpeed;
@@ -155,6 +158,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
+            
+
         }
 
         //Mode - Sprinting
@@ -162,6 +167,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
+            
         }
 
         //Mode - Waliking
@@ -169,12 +175,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
+            
         }
 
         //Mode - Air
         else
         {
             state = MovementState.air;
+            
         }
 
         // check id desiredMoveSpeed has changed
