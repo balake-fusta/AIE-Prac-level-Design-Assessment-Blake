@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class KillBlock : MonoBehaviour
     {
         //when games starts the players position is set to the SpawnPoint
         Player.transform.position = spawnPoint.transform.position;
+        Debug.Log("reeee");
     }
 
     // when the player hits the kill block the plyers psoition is changed to the spawnPoint  
