@@ -14,8 +14,14 @@ public class SpawnPad : MonoBehaviour
         checkpointPopUp.SetActive(false);
     }
 
+    private void Update()
+    {
+
+
+    }
     private void OnTriggerEnter(Collider other)
     {
+       
             spawnPoint.transform.position = spawnPad.transform.position;
         checkpointPopUp.SetActive(true);
         StartCoroutine("waitForSec");
