@@ -4,31 +4,14 @@ using UnityEngine;
 
 public class SpawnPad : MonoBehaviour
 {
-    public Transform spawnPad;
-    public Transform spawnPoint;
-    public GameObject checkpointPopUp;
-    public float checkpointShowTime;
-
-    public KillBlock kb;
+    public RSPoint2 RSpawn;
 
     private void Start()
     {
-        checkpointPopUp.SetActive(false);
+        RSpawn = GetComponent<RSPoint2>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
-       
-            spawnPoint.transform.position = spawnPad.transform.position;
-        kb.spawnPoint.transform.position = spawnPoint.transform.position;
-        checkpointPopUp.SetActive(true);
-        StartCoroutine("waitForSec");
-        Debug.Log("jsjfif");
-    }
-
-    IEnumerator waitForSec()
-    {
-        yield return new WaitForSeconds(checkpointShowTime);
-        checkpointPopUp.SetActive(false);
+        RSpawn.SpawnPoint.position = gameObject.transform.position;
     }
 }
