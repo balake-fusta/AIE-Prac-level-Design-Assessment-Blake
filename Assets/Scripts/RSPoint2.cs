@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class RSPoint2 : MonoBehaviour
 {
+    [SerializeField] private Transform startingSpawnPoint;
 
-    public Transform Player;
-    public Transform SpawnPoint;
-    
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 currentSpawnPosition;
+
+    private void Start()
     {
-        Player.transform.position = SpawnPoint.transform.position;
-        
+        currentSpawnPosition = startingSpawnPoint.position;
     }
 
-    public void respawn()
+    public void SetCheckpoint(Vector3 newCheckpoint)
     {
-        Player.position = SpawnPoint.position;
+        currentSpawnPosition = newCheckpoint;
+    }
+
+    public void Respawn()
+    {
+        CharacterController controller = GetComponent<CharacterController>();
+
+        // CharacterController needs to be disabled before teleporting.
+        if (controller != null)
+        {
+            controller.enabled = false;
+        }
+
+        transform.position = currentSpawnPosition;
+
+        if (controller != null)
+        {
+            controller.enabled = true;
+        }
     }
 }
